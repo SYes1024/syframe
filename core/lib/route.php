@@ -9,11 +9,13 @@
  * 路由类库
  */
 namespace core\lib;
+use core\lib\config;
 
 class route
 {
     public $controller;//控制器
     public $action;//方法
+
     public function __construct()
     {
         /**
@@ -32,7 +34,7 @@ class route
                 $this->action = $pathArr[1];
                 unset($pathArr[1]);
             } else {
-                $this->action = 'index';
+                $this->action = conf::get('ACTION', 'route');
             }
             //url多余部分转换成$_GET
             //id/1/str/2/test/3
@@ -45,8 +47,8 @@ class route
                 $i += 2;
             }
         } else {
-            $this->controller = 'index';//默认控制器
-            $this->action = 'index';//默认方法
+            $this->controller = conf::get('CTRL', 'route');//默认控制器
+            $this->action = conf::get('ACTION', 'route');//默认方法
         }
     }
 }

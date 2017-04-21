@@ -6,11 +6,12 @@
  * Time: 12:40
  */
 namespace app\controller;
+
 class indexController extends \core\syframe
 {
     public function index()
     {
-        $temp = \core\lib\config::get('CTRL', 'route');
+        $temp = new \core\lib\model();
         print_r($temp);
         /*视图部分实现*/
         $data = 'hello world';
