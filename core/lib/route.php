@@ -34,7 +34,7 @@ class route
                 $this->action = $pathArr[1];
                 unset($pathArr[1]);
             } else {
-                $this->action = conf::get('ACTION', 'route');
+                $this->action = config::get('ACTION', 'route');
             }
             //url多余部分转换成$_GET
             //id/1/str/2/test/3
@@ -47,8 +47,8 @@ class route
                 $i += 2;
             }
         } else {
-            $this->controller = conf::get('CTRL', 'route');//默认控制器
-            $this->action = conf::get('ACTION', 'route');//默认方法
+            $this->controller = config::get('CTRL', 'route');//默认控制器
+            $this->action = config::get('ACTION', 'route');//默认方法
         }
     }
 }

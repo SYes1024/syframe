@@ -15,6 +15,8 @@ class syframe
     //测试核心文件是否加载成功
     static public function run()
     {
+        \core\lib\log::init();
+        \core\lib\log::log('test1');
         $route = new \core\lib\route();
         $controller = $route->controller;
         $action = $route->action;
@@ -24,6 +26,7 @@ class syframe
             include $ctrlPath;
             $ctrl = new $ctrlClass();
             $ctrl->$action();//加载方法
+            \core\lib\log::log('ctrl:'.$ctrlClass.'    '.'aciton:'.$action);
         } else {
             throw new \Exception('找不到控制器'.$controller);
         }

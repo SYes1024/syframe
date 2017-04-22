@@ -6,6 +6,6 @@
  * Time: 13:48
  */
 return array(
-   'CTRL' => 'index',
+    'CTRL' => 'index',
     'ACTION' => 'index',
 );
