@@ -12,7 +12,15 @@ define('APP', ROOT.'/app');//项目文件所处目录
 define('MODULE', 'app');//模块名
 define('DEBUG',true);//是否开启调试模式
 
+include "vendor/autoload.php";
+
 if(DEBUG) {
+    $whoops = new \Whoops\Run();
+    $errorTitle = "框架出错了";
+    $option = new \Whoops\Handler\PrettyPageHandler();
+    $option->setPageTitle($errorTitle);
+    $whoops->pushHandler($option);
+    $whoops->register();
     ini_set('display_error','On');//显示错误
 } else {
     ini_set('display_error', 'Off');

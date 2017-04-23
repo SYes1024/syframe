@@ -7,17 +7,22 @@
  */
 namespace app\controller;
 
+use app\Model\cModel;
+use core\lib\model;
+
 class indexController extends \core\syframe
 {
     public function index()
     {
-        $temp = new \core\lib\model();
-        print_r($temp);
-        /*视图部分实现*/
-        $data = 'hello world';
-        $title = '视图文件';
+        $data = 'hello world!11';
         $this->assign('data', $data);
-        $this->assign('title', $title);
         $this->display('index.html');
+    }
+
+    public function test()
+    {
+        $data = 'test';
+        $this->assign('data', $data);
+        $this->display('test.html');
     }
 }

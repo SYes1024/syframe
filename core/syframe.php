@@ -16,7 +16,6 @@ class syframe
     static public function run()
     {
         \core\lib\log::init();
-        \core\lib\log::log('test1');
         $route = new \core\lib\route();
         $controller = $route->controller;
         $action = $route->action;
@@ -60,8 +59,14 @@ class syframe
     {
         $filePath = APP.'/views/'.$file;
         if(is_file($filePath)) {
-            extract($this->assign);//将数组拆分成变量
-            include $filePath;
+
+            $loader = new \Twig_Loader_Filesystem(APP.'/views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => APP.'/cache',
+                'DEBUG' => DEBUG
+            ));
+
+            echo $twig->render($file, $this->assign);
         }
     }
 }

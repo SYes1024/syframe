@@ -1,0 +1,30 @@
+{
+  "name": "syframe PHP",
+  "description": "PHP FrameWork",
+  "keywords": [
+    "PHP",
+    "PHP FrameWork"
+  ],
+  "type": "FrameWork",
+  "time": "2017/4/23 20:03",
+  "authors": [
+    {
+      "name": "SYes",
+      "email": "644760354@qq.com",
+      "role": "Engineer"
+    }
+  ],
+  "require": {
+    "php": ">= 5.4.0",
+    "filp/whoops": "*",
+    "symfony/var-dumper": "*",
+    "catfan/medoo": "*",
+    "twig/twig": "*"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  }
+}
